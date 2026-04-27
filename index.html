@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckIt — Shopping List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="bg-texture"></div>
+
+    <div class="app-wrapper">
+
+        <header class="app-header">
+            <div class="logo-mark">✦</div>
+            <h1 class="app-title">CheckIt</h1>
+            <p class="app-subtitle">Your elegant shopping companion</p>
+        </header>
+
+        <main class="container">
+
+            <!-- Add Item Form -->
+            <form id="inputForm" class="input-form" novalidate>
+                <div class="input-row">
+                    <div class="field-group">
+                        <label for="itemName">Item</label>
+                        <input type="text" id="itemName" placeholder="e.g. Organic oat milk" autocomplete="off" required>
+                    </div>
+                    <div class="field-group field-group--price">
+                        <label for="itemPrice">Price (KSh)</label>
+                        <input type="number" id="itemPrice" placeholder="0.00" min="0" step="0.01" required>
+                    </div>
+                </div>
+                <button type="submit" id="addButton">
+                    <span class="btn-icon">+</span>
+                    <span>Add to List</span>
+                </button>
+            </form>
+
+            <!-- Error message -->
+            <p id="errorMsg" class="error-msg" aria-live="polite"></p>
+
+            <!-- List Section -->
+            <div class="list-section" id="listSection">
+
+                <div class="list-header">
+                    <span class="list-count" id="listCount">0 items</span>
+                    <button id="clearButton" class="btn-clear" title="Clear entire list">Clear all</button>
+                </div>
+
+                <section id="list" class="item-list" aria-label="Shopping list items"></section>
+
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon"><img src="images/cart-arrow-down-solid-full.svg" alt="Cart icon"></div>
+                    <p>Your list is empty.</p>
+                    <span>Add your first item above.</span>
+                </div>
+
+            </div>
+
+            <!-- Total -->
+            <div class="total-bar" id="totalBar">
+                <div class="total-label">
+                    <span>Estimated Total</span>
+                    <span class="total-note" id="totalNote"></span>
+                </div>
+                <div class="total-amount" id="totalAmount">KSh 0.00</div>
+            </div>
+
+        </main>
+
+        <footer class="app-footer">
+            <p>Made with care &mdash; CheckIt &copy; 2025</p>
+            <p>Icons by <a href="https://fontawesome.com/" target="_blank" style="text-decoration: none; color: var(--brown-deep);">Font Awesome</a></p>
+        </footer>
+
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+        <div class="modal" role="dialog" aria-labelledby="modalTitle">
+            <h2 id="modalTitle">Edit Item</h2>
+            <div class="field-group">
+                <label for="editName">Item name</label>
+                <input type="text" id="editName" autocomplete="off">
+            </div>
+            <div class="field-group">
+                <label for="editPrice">Price (KSh)</label>
+                <input type="number" id="editPrice" min="0" step="0.01">
+            </div>
+            <div class="modal-actions">
+                <button id="modalCancel" class="btn-modal btn-modal--cancel">Cancel</button>
+                <button id="modalSave" class="btn-modal btn-modal--save">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
