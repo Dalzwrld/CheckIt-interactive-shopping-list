@@ -435,8 +435,9 @@ body {
     background: var(--brown-deep);
     color: #fff;
     border-radius: var(--radius-lg);
-    padding: 22px 28px;
+    padding: 20px 28px;
     box-shadow: var(--shadow-md);
+    margin-bottom: 20px;
 }
 
 .total-label {
