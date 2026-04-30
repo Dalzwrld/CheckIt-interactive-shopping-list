@@ -432,7 +432,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--brown);
+    background: var(--brown-deep);
     color: #fff;
     border-radius: var(--radius-lg);
     padding: 20px 28px;
